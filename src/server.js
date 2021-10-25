@@ -6,7 +6,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 
 // routes
-// const { trackRouter, userRouter, playlistRouter } = require("./routes");
+const { userRouter } = require("./routes");
 
 // app creation
 const app = express();
@@ -18,14 +18,12 @@ app.use(json());
 app.use(cors());
 
 // app used routes
-// app.use("/tracks", trackRouter);
-// app.use("/users", userRouter);
-// app.use("/playlists", playlistRouter);
+app.use("/users", userRouter);
 
 // test request to see server works properly
 app.get("/", (req, res) => {
   res.status(200).send({
-    data: "hello-world",
+    message: "This is an API for GIFHome Project",
   });
 });
 

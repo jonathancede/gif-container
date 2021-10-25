@@ -6,6 +6,7 @@ const UserSchema = new Schema(
     firebaseId: {
       type: String,
       unique: true,
+      required: [true, "Please, a firebase id is neccesary"],
     },
     userName: {
       type: String,
