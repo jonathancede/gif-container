@@ -1,5 +1,22 @@
 const { Gifs, Users } = require("../models");
 
+async function getAllGifs(req, res) {
+  try {
+    const allGifs = await Gifs.find({})
+      .sort({ totalViews: -1 })
+      .populate("owner");
+
+    return res.status(201).send({
+      ok: true,
+      result: allGifs,
+    });
+  } catch (error) {
+    return res.status(500).send({
+      error: error.message,
+    });
+  }
+}
+
 async function getGifById(req, res) {
   const { id } = req.params;
 
@@ -150,6 +167,7 @@ async function getGifsByTag(req, res) {
 }
 
 module.exports = {
+  getAllGifs: getAllGifs,
   getGifById: getGifById,
   uploadNewGif: uploadNewGif,
   getGifsByTitle: getGifsByTitle,

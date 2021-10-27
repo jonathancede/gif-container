@@ -4,6 +4,7 @@ const { gifController } = require("../controllers");
 const { authMiddleware } = require("../middlewares");
 
 // GET
+gifRouter.get("/get-all", gifController.getAllGifs);
 gifRouter.get("/get-by-id/:id", gifController.getGifById);
 gifRouter.get("/get-gifs-by-title/:title", gifController.getGifsByTitle);
 gifRouter.get(
