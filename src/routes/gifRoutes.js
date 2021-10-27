@@ -5,6 +5,12 @@ const { authMiddleware } = require("../middlewares");
 
 // GET
 gifRouter.get("/get-by-id/:id", gifController.getGifById);
+gifRouter.get("/get-gifs-by-title/:title", gifController.getGifsByTitle);
+gifRouter.get(
+  "/get-gifs-by-username/:username",
+  gifController.getGifsByUserName
+);
+gifRouter.get("/get-gifs-by-tag/:tag", gifController.getGifsByTag);
 
 // PATCH
 
