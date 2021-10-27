@@ -6,7 +6,7 @@ async function getGifById(req, res) {
   try {
     const foundGif = await Gifs.findOne({
       _id: id,
-    });
+    }).populate("owner");
 
     if (foundGif == null) {
       return res.status(201).send({

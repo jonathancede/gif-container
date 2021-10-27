@@ -4,7 +4,8 @@ const { Schema } = require("mongoose");
 const GifSchema = new Schema(
   {
     owner: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: "users",
       required: [true, "Please, give us your username"],
     },
     title: {
