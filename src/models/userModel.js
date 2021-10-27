@@ -35,13 +35,13 @@ const UserSchema = new Schema(
     myGifs: [
       {
         type: Schema.Types.ObjectId,
-        ref: "tracks",
+        ref: "gifs",
       },
     ],
     favGifs: [
       {
         type: Schema.Types.ObjectId,
-        ref: "tracks",
+        ref: "gifs",
       },
     ],
     gifsHistory: [
